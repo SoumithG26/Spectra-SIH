@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectra-sih"
+version = "0.1.0"
+description = "SPECTRA - automated analysis of .IQ/.wav signals (SIH 2026, PS 26147)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.1",
+    "scipy>=1.14",
+    "matplotlib>=3.9",
+    "streamlit>=1.37",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+spectra = "spectra.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["spectra*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
